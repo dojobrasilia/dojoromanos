@@ -4,34 +4,18 @@ import static junit.framework.Assert.*;
 
 public class TestRomanos {
 	
-	@Test
-	public void deveriaInterpretarO1comoI() throws Exception {
-		String resultado = Romanos.parse(1);
-		assertEquals("I", resultado);
-	}
+	String[] numerosRomanos = {"I","II","III","IV","V","VI", 
+							   "VII", "VIII", "IX", "X"};
 	
 	@Test
-	public void deveriaInterpretarO2comoII() throws Exception {
-		String resultado = Romanos.parse(2);
-		assertEquals("II", resultado);
+	public void deveriaInterpretarInteiroComoRomano() throws Exception {
+		for(int i = 1; i <= this.numerosRomanos.length; i++){
+			this.verificaRomanos(i, this.numerosRomanos[i-1]);
+		}
 	}
 	
-	@Test
-	public void deveriaInterpretarO3comoIII() throws Exception {
-		String resultado = Romanos.parse(3);
-		assertEquals("III", resultado);
-	}
-	
-	@Test
-	public void deveriaInterpretarO4comoIV() throws Exception {
-		String resultado = Romanos.parse(4);
-		assertEquals("IV", resultado);
-	}
-	
-	@Test
-	public void deveriaInterpretarO4comoIV() throws Exception {
-		String resultado = Romanos.parse(4);
-		assertEquals("IV", resultado);
+	public void verificaRomanos(int entrada, String saidaEsperada){
+		assertEquals(saidaEsperada, Romanos.parse(entrada));
 	}
 	
 }
